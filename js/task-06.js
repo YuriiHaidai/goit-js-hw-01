@@ -1,8 +1,10 @@
+"use strict";
+
 let input;
 let total = 0;
 
 while (input !== null) {
-  input = prompt('Введите число');
+  input = prompt("Введите число");
 
   if (input === null) {
     break;
