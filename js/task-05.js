@@ -1,38 +1,54 @@
 "use strict";
 
-const CHINA = 100;
-const CHILI = 250;
-const AUSTRALIA = 170;
-const INDIA = 80;
-const YAMAYKA = 120;
+const PRINT_COUNTRY =
+  "Напишите название страны в которую нужно доставить товар";
+const CANCEL_BY_USER = "Отменено пользователем!";
+const NOT_DELIVERY = "В вашей стране доставка не доступна";
+const CNINA = "Китай";
+const AUSTRALIA = "Австралия";
+const INDIA = "Индия";
+const JAMAICA = "Ямайка";
+const SOUTH_AMERICA = "Южная америка";
 
-let userChoise = prompt("Укажите страну");
+let message = prompt(PRINT_COUNTRY);
+let priсe = 0;
+let countryName;
 
-if (userChoise === null) {
-  alert("Доставка не оформлена");
+if (message === null) {
+  message = CANCEL_BY_USER;
 } else {
-  switch (userChoise.toUpperCase()) {
-    case "CHINA":
-      alert(`Доставка в ${userChoise} будет стоить ${CHINA} кредитов`);
+  countryName = message[0].toUpperCase() + message.slice(1).toLowerCase();
+  // console.log(message[0].toUpperCase()); Делает первую букву заклавной
+  // console.log(message.slice(1).toLowerCase()); Делает все кроме первой буквы маленькими
+
+  switch (countryName) {
+    case CNINA:
+      priсe = 100;
       break;
 
-    case "CHILI":
-      alert(`Доставка в ${userChoise} будет стоить ${CHILI} кредитов`);
+    case SOUTH_AMERICA:
+      priсe = 250;
       break;
 
-    case "AUSTRALIA":
-      alert(`Доставка в ${userChoise} будет стоить ${AUSTRALIA} кредитов`);
+    case AUSTRALIA:
+      priсe = 170;
       break;
 
-    case "INDIA":
-      alert(`Доставка в ${userChoise} будет стоить ${INDIA} кредитов`);
+    case INDIA:
+      priсe = 80;
       break;
 
-    case "YAMAYKA":
-      alert(`Доставка в ${userChoise} будет стоить ${YAMAYKA} кредитов`);
+    case JAMAICA:
+      priсe = 120;
       break;
 
     default:
-      alert("В вашей стране доставка не доступна");
+      message = NOT_DELIVERY;
   }
 }
+
+if (priсe > 0) {
+  const PRICE_DELIVERY = `Доставка в ${countryName} будет стоить ${priсe} кредитов`;
+  message = PRICE_DELIVERY;
+}
+alert(message);

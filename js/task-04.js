@@ -4,7 +4,9 @@ let credits = 23500;
 const pricePerDroid = 3000;
 let totalPrice;
 
-const ordered = prompt("Какое количество дроидов Вы хотите приобрести?");
+const ordered = Number(
+  prompt("Какое количество дроидов Вы хотите приобрести?")
+);
 
 if (ordered !== null) {
   totalPrice = ordered * pricePerDroid;
